@@ -3,7 +3,7 @@ Project 1 - Group
 
 Coding Requirements:
 
-Must use at least 2 APIs
+Must use at least 2 APIs <br>
 Must use AJAX to pull data
 Must utilize at least one new library or tech that we haven't dicussed
 Mush have a polished frontend / UL 
