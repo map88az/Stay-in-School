@@ -23,23 +23,42 @@ function initialize(location)
 			        });
 				
 				// API call for the weather
-				var weatherURL = "api.openweathermap.org/data/2.5/weather?lat={" + location.coords.latitude + "}&lon={" + location.coords.longitude + "}";
+				var weatherURL = "api.openweathermap.org/data/2.5/weather?lat=" + location.coords.latitude.toFixed(2) + "&lon=" + location.coords.longitude.toFixed(2) + "&APPID=ad2049df345f2733661921d3ca7a05f5";
         		// Performing our AJAX GET request
       $.ajax({
-          url: weatherURL,
-          method: "GET"
-        })
+      	  method: "GET",
+          dataType: "json",
+          url: "http://api.openweathermap.org/data/2.5/weather?lat=33.36&lon=-111.79&APPID=ad2049df345f2733661921d3ca7a05f5",
+          
+        	})
         // After the data comes back from the API
         .done(function(response) {
 				console.log(response);
 
 
-        })
-        .error(function(error){
-        	console.log("error", error);
-        });
-    	}
-      
+        	})
+        .fail(function(error){
+        	console.log("error", error.responseText);
+        	});
+    		
+
+    	// Eventful API
+
+		var eventfulApiKey = "wwBJT6fHmcLQCH4G";
+    		
+    $.ajax({
+              method: "GET",
+              dataType: "json",
+              url: "http://api.eventful.com/rest/events/search?location=phoenix" + "&app_key=" + eventfulApiKey,
+           }).done(function(result){
+                    
+                    console.log(result);
+
+           }).fail(function(error){
+        	
+        			console.log("error", error.statusText);
+           });
+      	}
 
 		
 
