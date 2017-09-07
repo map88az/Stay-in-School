@@ -34,6 +34,9 @@ function initialize(location)
 				console.log(response);
 
 
+        })
+        .error(function(error){
+        	console.log("error", error);
         });
     	}
       
