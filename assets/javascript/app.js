@@ -1,3 +1,5 @@
+// Google API Key
+var apiKey = 'AIzaSyAEgVTABuoJteYHqrlpGO1aQ1TehkBg8X0';
 function initialize(location)
 		{
 				console.log(location);
@@ -9,6 +11,7 @@ function initialize(location)
 					zoom: 12,
 					mapTypeId: google.maps.MapTypeId.ROADMAP
 				};
+
 				// Create ne wmap in jumbotron with id 'map-canvas'
 				map = new google.maps.Map(document.getElementById("map-canvas"),
 						mapOptions);
@@ -18,8 +21,21 @@ function initialize(location)
 			            map: map,
 			            icon: im
 			        });
-					       
-        }
+				
+				// API call for the weather
+				var weatherURL = "api.openweathermap.org/data/2.5/weather?lat={" + location.coords.latitude + "}&lon={" + location.coords.longitude + "}";
+        		// Performing our AJAX GET request
+      $.ajax({
+          url: weatherURL,
+          method: "GET"
+        })
+        // After the data comes back from the API
+        .done(function(response) {
+				console.log(response);
+
+
+        });
+    	}
       
 
 		
@@ -31,10 +47,17 @@ $(document).ready(function()
 
 		});
 
-// Google API Key
-var apiKey = 'AIzaSyAEgVTABuoJteYHqrlpGO1aQ1TehkBg8X0';
 
 
+// Grab input value from ***City Search*** bar and store as a variable ***Global***
+
+// Convert var into proper string to search Google Maps Api
+
+// Display new map with marker
+
+// Use same variable to search Eventful API
+
+// Append the results to the 'events' div
 
 
 
