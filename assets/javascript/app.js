@@ -4,7 +4,7 @@ function initialize(location)
 		{
 				console.log(location);
 				// var for circle image
-				var im = <img src="assets/images/bluecircle.png">;
+				var im = "assets/images/bluecircle.png";
 				// Create variable for map options
 				var mapOptions = {
 					center: new google.maps.LatLng(location.coords.latitude, location.coords.longitude),
