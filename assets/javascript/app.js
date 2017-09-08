@@ -22,24 +22,7 @@ function initialize(location)
 			            icon: im
 			        });
 				
-				// API call for the weather
-				var weatherURL = "api.openweathermap.org/data/2.5/weather?lat=" + location.coords.latitude.toFixed(2) + "&lon=" + location.coords.longitude.toFixed(2) + "&APPID=ad2049df345f2733661921d3ca7a05f5";
-        		// Performing our AJAX GET request
-      $.ajax({
-      	  method: "GET",
-          dataType: "json",
-          url: "http://api.openweathermap.org/data/2.5/weather?lat=33.36&lon=-111.79&APPID=ad2049df345f2733661921d3ca7a05f5",
-          
-        	})
-        // After the data comes back from the API
-        .done(function(response) {
-				console.log(response);
-
-
-        	})
-        .fail(function(error){
-        	console.log("error", error.responseText);
-        	});
+				
     		
 
     	// Eventful API
@@ -67,7 +50,7 @@ $(document).ready(function()
 		{
 				navigator.geolocation.getCurrentPosition(initialize);
 
-		});
+		
 
 
 
@@ -81,8 +64,60 @@ $(document).ready(function()
 
 // Append the results to the 'events' div
 
+//Firebase entry of recent user searches
+
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCWK0pIiNd4lVSgBUbuU6-B-FargYoYPyo",
+    authDomain: "apiproject1-dad7d.firebaseapp.com",
+    databaseURL: "https://apiproject1-dad7d.firebaseio.com",
+    projectId: "apiproject1-dad7d",
+    storageBucket: "",
+    messagingSenderId: "703597396756"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+// Store user input in firebase
+  $("#add-city").on("click", function() {
+        var city = $("#city-input").val().trim();
+        database.ref().push({
+            city: city,
+            dateAdded: firebase.database.ServerValue.TIMESTAMP
+        })
+        //Return input to original placeholder
+        $("#city-input").val("City...");
+          // prevent page from refreshing when user hits enter
+        return false;
+
+        // API call for the weather
+		var weatherURL = "api.openweathermap.org/data/2.5/weather?q=" + $("#city-input").val().trim() + "&APPID=ad2049df345f2733661921d3ca7a05f5";
+        
+        // Performing our AJAX GET request
+	    $.ajax({
+	       	  method: "GET",
+	          dataType: "json",
+	          url: weatherURL,
+	          
+	        	})
+	        // After the data comes back from the API
+	        .done(function(response) {
+					console.log(response);
 
 
+	        	})
+	        .fail(function(error){
+	        	console.log("error", error.responseText);
+	        	});
+	    });
+// when user input is added to Firebase, append the stored values to the page
+    database.ref().on("child_added", function(childSnapshot) {
 
+    	$(".added-city").append("<tr>+<td>" + childSnapshot.val().city + "<td>" + childSnapshot.val().dateAdded + "<td>");
+
+
+    });
+
+});
 
 
