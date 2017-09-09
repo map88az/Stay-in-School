@@ -3,3 +3,17 @@
 html, body, #map-canvas {
 	height:400px; margin:0; padding:0; width: 100%;
 		}
+
+#map-canvas { 
+	position:absolute;  
+	z-index: 0;
+}		
+
+#search {
+	position: relative; 
+	z-index: 1; /* The z-index should be higher than Google Maps */
+	width: 300px;
+	height: auto;
+	opacity: .45; /* Set the opacity for a slightly transparent Google Form */ 
+	color: white;
+}
