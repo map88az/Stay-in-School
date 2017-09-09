@@ -1,5 +1,6 @@
 
 
+<<<<<<< HEAD
 html, body, #map-canvas {
 	height:400px; margin:0; padding:0; width: 100%;
 		}
@@ -17,3 +18,60 @@ html, body, #map-canvas {
 	opacity: .45; /* Set the opacity for a slightly transparent Google Form */ 
 	color: white;
 }
+=======
+#map-canvas {
+	height:250px; margin:0; padding:0; width: 100%;
+		}
+
+body{
+	background-color:#4e968b;
+}
+.jumbotron{
+	background-color: #206057;
+	width: 100%;
+	color: #FFAB00;
+    border-style: groove;
+    border-color: transparent;
+    
+}
+
+.display-3{
+	font-family: 'Tauri', sans-serif;
+	text-shadow: 2px 2px  #1E3C38;
+}
+
+.container{
+	color: white;
+}
+
+.footer{
+	position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 18px;
+    width: 100%;
+    background-color:grey;
+    font-family: 'Source Serif Pro', serif;
+    font-size: 12px;
+}
+
+img {
+    max-width: 30%;
+    height: auto;
+}
+
+.item {
+    width: 120px;
+    min-height: 120px;
+    max-height: auto;
+    float: left;
+    margin: 3px;
+    padding: 3px; 
+}
+
+#map-canvas {
+	height:250px; margin:0; padding:0; width: 100%;
+	background-color: white;
+	border: orange;
+		}
+>>>>>>> f3b3f4644f9ed0897acddf76b2059b6645d9c4b4

@@ -112,6 +112,7 @@ $(document).ready(function()
 	    });
 // when user input is added to Firebase, append the stored values to the page
     database.ref().on("child_added", function(childSnapshot) {
+<<<<<<< HEAD
 
     	$(".added-city").append("<tr>+<td>" + childSnapshot.val().city + "<td>" + childSnapshot.val().dateAdded + "<td>");
 
@@ -142,15 +143,25 @@ var city = $(this).attr("data-name");
           var pOne = $(weatherDiv).html("Weather: " + parseInt((1.8*(weather - 273) + 32)) + "&#8457");
 
           weatherDiv.append(pOne);
+=======
+
+    	$(".added-city").append("<tr>+<td>" + childSnapshot.val().city + "<td>" + childSnapshot.val().dateAdded + "<td>");
+>>>>>>> f3b3f4644f9ed0897acddf76b2059b6645d9c4b4
 
           $("#weather").text(weatherDiv);  
         });
 
+<<<<<<< HEAD
         $(".btn-secondary").on("click", function(event) {
         event.preventDefault();
 
         //$("#movie-input").val().trim();
         
+=======
+    });
+
+});
+>>>>>>> f3b3f4644f9ed0897acddf76b2059b6645d9c4b4
 
         cityWeather.push(city);
 
