@@ -1,5 +1,24 @@
 
 
+<<<<<<< HEAD
+html, body, #map-canvas {
+	height:400px; margin:0; padding:0; width: 100%;
+		}
+
+#map-canvas { 
+	position:absolute;  
+	z-index: 0;
+}		
+
+#search {
+	position: relative; 
+	z-index: 1; /* The z-index should be higher than Google Maps */
+	width: 300px;
+	height: auto;
+	opacity: .45; /* Set the opacity for a slightly transparent Google Form */ 
+	color: white;
+}
+=======
 #map-canvas {
 	height:250px; margin:0; padding:0; width: 100%;
 		}
@@ -55,3 +74,4 @@ img {
 	background-color: white;
 	border: orange;
 		}
+>>>>>>> f3b3f4644f9ed0897acddf76b2059b6645d9c4b4
